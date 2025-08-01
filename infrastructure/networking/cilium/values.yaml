@@ -14,7 +14,8 @@ cgroup:
   hostRoot: /sys/fs/cgroup
 # https://docs.cilium.io/en/stable/network/concepts/ipam/
 ipam:
-  mode: kubernetes
+  mode: cluster-pool
+loadBalancerIPAM: true
 operator:
   rollOutPods: true
   replicas: 1

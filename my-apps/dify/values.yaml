@@ -125,12 +125,12 @@ weaviate:
       allowed_keys:
         - "WVF5YThaHlkYwhGUSmCRgsX3tD5ngdN8pkih"
       users:
-        - hello@dify.ai
+        - kylechou94@gmail.com
   authorization:
     admin_list:
       enabled: true
       users:
-        - hello@dify.ai
+        - kylechou94@gmail.com
 
 redis:
   enabled: true
