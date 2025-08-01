@@ -1,0 +1,71 @@
+# Vaultwarden Helm Chart Values
+# Based on https://github.com/guerzon/vaultwarden
+
+# Image configuration
+image:
+  repository: vaultwarden/server
+  tag: "1.34.3-alpine"
+  pullPolicy: IfNotPresent
+
+replicas: 1
+
+# Resources
+resources:
+  limits:
+    cpu: 300m
+    memory: 1Gi
+  requests:
+    cpu: 50m
+    memory: 256Mi
+
+# Persistent data
+storage:
+  data:
+    name: "vaultwarden-data"
+    size: "1Gi"
+    class: "longhorn"
+    path: "/data"
+    accessMode: "ReadWriteOnce"
+
+# General settings
+domain: "https://vaultwarden.xmxxmx.us"
+signupsAllowed: true
+invitationsAllowed: true
+emergencyAccessAllowed: true
+webVaultEnabled: "true"
+showPassHint: "false"
+
+# Rocket server settings
+rocket:
+  address: "0.0.0.0"
+  port: "8080"
+  workers: "10"
+
+# Service configuration
+service:
+  type: "ClusterIP"
+
+# Ingress is disabled as we use Gateway API
+ingress:
+  enabled: false
+
+# Health checks
+livenessProbe:
+  enabled: true
+  path: /alive
+  initialDelaySeconds: 5
+  timeoutSeconds: 1
+  periodSeconds: 10
+  failureThreshold: 10
+
+readinessProbe:
+  enabled: true
+  path: /alive
+  initialDelaySeconds: 5
+  timeoutSeconds: 1
+  periodSeconds: 10
+  failureThreshold: 3
+
+# Logging configuration
+logging:
+  logLevel: "info"
