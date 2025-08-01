@@ -9,6 +9,5 @@ spec:
     - enp.*
     - ens.*
     - eno.*
-    - wlp.*
   loadBalancerIPs: true
   externalIPs: true
