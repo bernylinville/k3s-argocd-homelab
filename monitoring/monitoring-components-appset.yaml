@@ -11,7 +11,7 @@ spec:
       repoURL: https://github.com/bernylinville/k3s-argocd-homelab.git
       revision: HEAD
       directories:
-      - path: monitoring/kube-prometheus-stack
+      - path: monitoring/*
   template:
     metadata:
       name: '{{path.basename}}'
