@@ -7,8 +7,8 @@ storageClasses:
 - name: nfs-csi
   defaultClass: false
   parameters:
-    server: 192.168.10.133
-    share: /mnt/generaltank/k8s/
+    server: 192.168.50.94
+    share: /mnt/k8s/
   mountOptions:
     - nfsvers=4.1
 
