@@ -20,6 +20,6 @@ spec:
       backendRefs:
         - group: ""
           kind: Service
-          name: dify-web
-          port: 3000
+          name: dify
+          port: 80
           weight: 1
