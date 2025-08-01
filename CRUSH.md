@@ -47,3 +47,5 @@ Since this project primarily uses YAML, there isn't a traditional build or test 
     - Keep applications organized by function (e.g., `monitoring`, `my-apps`).
 - **Commits:**
     - Use conventional commit messages (e.g., `feat: add new application`, `fix: correct service port`).
+
+Always use Chinese.

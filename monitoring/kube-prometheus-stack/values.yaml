@@ -21,7 +21,8 @@ prometheusOperator:
 
 grafana:
   enabled: true
-  adminPassword: "admin"
+  adminUser: admin
+  adminPassword: prom-operator
   defaultDashboardsEnabled: true
   persistence:
     enabled: true
