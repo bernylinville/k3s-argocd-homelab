@@ -84,8 +84,25 @@ postgresql:
         database: "dify"
   primary:
     resources:
-      limits: {}
-      requests: {}
+      limits:
+        cpu: "1000m"
+        memory: "2Gi"
+      requests:
+        cpu: "500m"
+        memory: "1Gi"
+    persistence:
+      enabled: true
+      storageClass: "longhorn"
+      accessModes:
+        - ReadWriteOnce
+      size: 8Gi
+  readReplicas:
+    persistence:
+      enabled: true
+      storageClass: "longhorn"
+      accessModes:
+        - ReadWriteOnce
+      size: 8Gi
 
 weaviate:
   enabled: true
@@ -100,6 +117,20 @@ weaviate:
   storage:
     size: 32Gi
     storageClassName: "longhorn"
+  authentication:
+    anonymous_access:
+      enabled: false
+    apikey:
+      enabled: true
+      allowed_keys:
+        - "WVF5YThaHlkYwhGUSmCRgsX3tD5ngdN8pkih"
+      users:
+        - hello@dify.ai
+  authorization:
+    admin_list:
+      enabled: true
+      users:
+        - hello@dify.ai
 
 redis:
   enabled: true
@@ -107,3 +138,17 @@ redis:
     storageClass: "longhorn"
     redis:
       password: "difyai123456"
+  master:
+    persistence:
+      enabled: true
+      storageClass: "longhorn"
+      accessModes:
+        - ReadWriteOnce
+      size: 8Gi
+  replica:
+    persistence:
+      enabled: true
+      storageClass: "longhorn"
+      accessModes:
+        - ReadWriteOnce
+      size: 8Gi
