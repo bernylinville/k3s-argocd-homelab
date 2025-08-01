@@ -9,7 +9,7 @@ spec:
       namespace: gateway
       sectionName: https # Must match your Gateway's listeners[].name
   hostnames:
-    - "proxitok.vanillax.xyz"
+    - "proxitok.xmxxmx.us"
   rules:
     - matches:
         - path:

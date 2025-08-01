@@ -9,8 +9,8 @@ metadata:
     argocd.argoproj.io/compare-options: ServerSideDiff=true
 spec:
   dnsNames:
-    - "*.vanillax.xyz"
-    - vanillax.xyz
+    - "*.xmxxmx.us"
+    - xmxxmx.us
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
