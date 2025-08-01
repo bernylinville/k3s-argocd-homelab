@@ -1,0 +1,109 @@
+# Dify Helm Chart Values
+# Based on https://github.com/BorisPolonsky/dify-helm
+
+# Component replicas
+api:
+  enabled: true
+  replicas: 1
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1Gi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  persistence:
+    persistentVolumeClaim:
+      storageClass: "longhorn"
+      accessModes: ReadWriteMany
+      size: 5Gi
+
+worker:
+  enabled: true
+  replicas: 1
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1Gi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+proxy:
+  enabled: true
+  replicas: 1
+  resources: {}
+
+
+
+
+web:
+  enabled: true
+  replicas: 1
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 50m
+      memory: 128Mi
+
+sandbox:
+  enabled: true
+  replicas: 1
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1Gi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+ssrfProxy:
+  enabled: false
+  replicas: 1
+
+pluginDaemon:
+  enabled: true
+  replicas: 1
+  persistence:
+    persistentVolumeClaim:
+      storageClass: "longhorn"
+      accessModes: ReadWriteMany
+      size: 5Gi
+
+postgresql:
+  enabled: true
+  global:
+    storageClass: "longhorn"
+    postgresql:
+      auth:
+        postgresPassword: "difyai123456"
+        username: "dify"
+        password: "difyai123456"
+        database: "dify"
+  primary:
+    resources:
+      limits: {}
+      requests: {}
+
+weaviate:
+  enabled: true
+  replicas: 1
+  resources:
+    requests:
+      cpu: '500m'
+      memory: '300Mi'
+    limits:
+      cpu: '1000m'
+      memory: '1Gi'
+  storage:
+    size: 32Gi
+    storageClassName: "longhorn"
+
+redis:
+  enabled: true
+  global:
+    storageClass: "longhorn"
+    redis:
+      password: "difyai123456"

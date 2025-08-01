@@ -29,7 +29,7 @@ storage:
 
 # General settings
 domain: "https://vaultwarden.xmxxmx.us"
-signupsAllowed: true
+signupsAllowed: false
 invitationsAllowed: true
 emergencyAccessAllowed: true
 webVaultEnabled: "true"
