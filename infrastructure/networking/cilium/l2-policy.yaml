@@ -8,7 +8,7 @@ spec:
     - eth.*
     - enp.*
     - ens.*
-    - wlan.*
+    - eno.*
     - wlp.*
   loadBalancerIPs: true
   externalIPs: true
